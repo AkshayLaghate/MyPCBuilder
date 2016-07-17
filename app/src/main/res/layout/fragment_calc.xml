@@ -1,0 +1,328 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.indcoders.pcbuilder.Fragments.CalcFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="0dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="45"
+                android:alpha="0.9"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="2sp"
+                card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Processor"
+                        android:id="@+id/textView"
+                        android:textColor="@color/background_floating_material_dark"
+                        android:typeface="serif"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rbGroupProcessor"
+                        android:layout_marginTop="10dp">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="INTEL"
+                            android:id="@+id/rbIntel" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="AMD"
+                            android:id="@+id/rbAMD" />
+                    </RadioGroup>
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_mb"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+                </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="45"
+                android:alpha="0.9"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="2sp"
+                card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Motherboard"
+                        android:textColor="@color/background_floating_material_dark"
+                        android:typeface="serif"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rbGroupMB"
+                        android:layout_marginTop="10dp">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Desktop"
+                            android:id="@+id/rbDesktop" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Server"
+                            android:id="@+id/rbServer" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Mini-ITX"
+                            android:id="@+id/rbMini" />
+
+
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="45"
+                android:alpha="0.9"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="2sp"
+                card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Graphics Card"
+                        android:textColor="@color/background_floating_material_dark"
+                        android:typeface="serif"
+                        android:textStyle="bold" />
+
+                    <RadioGroup
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/rbGroupGraphics"
+                        android:layout_marginTop="10dp">
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Integrated"
+                            android:id="@+id/rbIntegrated" />
+
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nvidia"
+                            android:id="@+id/rbNvidia" />
+                        <RadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ATI"
+                            android:id="@+id/rbAti" />
+                    </RadioGroup>
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_graphics"
+                        android:layout_marginTop="5dp" />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_graphics_nos"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="45"
+                android:alpha="0.9"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="2sp"
+                card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="RAM"
+                        android:textColor="@color/background_floating_material_dark"
+                        android:typeface="serif"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_ram"
+                        android:layout_marginTop="5dp" />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_ram_nos"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="45"
+                android:alpha="0.9"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="2sp"
+                card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Optical Drive"
+                        android:textColor="@color/background_floating_material_dark"
+                        android:typeface="serif"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_optical"
+                        android:layout_marginTop="5dp" />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_optical_nos"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="45"
+                android:alpha="0.9"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="2sp"
+                card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="Hard Drive"
+                        android:textColor="@color/background_floating_material_dark"
+                        android:typeface="serif"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_hdd"
+                        android:layout_marginTop="5dp" />
+                    <Spinner
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/spinner_hdd_nos"
+                        android:layout_marginTop="5dp" />
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Calculate"
+                android:background="@color/colorPrimary"
+                android:id="@+id/bCalculate"/>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</FrameLayout>
