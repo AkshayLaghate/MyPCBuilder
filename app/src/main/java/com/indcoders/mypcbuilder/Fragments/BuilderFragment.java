@@ -1,12 +1,17 @@
 package com.indcoders.mypcbuilder.Fragments;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.indcoders.mypcbuilder.R;
 
@@ -18,7 +23,7 @@ import com.indcoders.mypcbuilder.R;
  * Use the {@link BuilderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class BuilderFragment extends Fragment {
+public class BuilderFragment extends Fragment implements View.OnClickListener {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -28,7 +33,12 @@ public class BuilderFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    private TextView tvProcessorName;
+    private Button bSelectProcessor;
+
     private OnFragmentInteractionListener mListener;
+
+    private int TAG_MB = 1, TAG_PRO = 2, TAG_GC = 3, TAG_RAM = 4, TAG_HD = 5, TAG_SSD = 6, TAG_MON = 7, TAG_PSU = 8, TAG_OPT = 9;
 
     public BuilderFragment() {
         // Required empty public constructor
@@ -65,7 +75,36 @@ public class BuilderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_builder, container, false);
+        View v = inflater.inflate(R.layout.fragment_builder, container, false);
+
+        tvProcessorName = (TextView) v.findViewById(R.id.tvProcessorName);
+        bSelectProcessor = (Button) v.findViewById(R.id.bSelectProcessor);
+
+        bSelectProcessor.setOnClickListener(this);
+
+
+        return v;
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.bSelectProcessor:
+                Intent i = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                i.putExtra("Tag", "Processor");
+                startActivityForResult(i, TAG_PRO);
+                break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == TAG_PRO) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -91,6 +130,7 @@ public class BuilderFragment extends Fragment {
         super.onDetach();
         mListener = null;
     }
+
 
     /**
      * This interface must be implemented by activities that contain this

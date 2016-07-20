@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.indcoders.mypcbuilder.Fragments.BuilderFragment;
 import com.indcoders.mypcbuilder.Fragments.CalcFragment;
 import com.indcoders.mypcbuilder.Utils.DBHelper;
 
@@ -24,7 +25,8 @@ import java.io.IOException;
 
 public class HostActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-CalcFragment.OnFragmentInteractionListener{
+        CalcFragment.OnFragmentInteractionListener,
+        BuilderFragment.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,11 @@ CalcFragment.OnFragmentInteractionListener{
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        if (savedInstanceState == null) {
+            navigationView.getMenu().performIdentifierAction(R.id.nav_camera, 0);
+        }
+        navigationView.setCheckedItem(R.id.nav_camera);
 
         DBHelper dbHelper = new DBHelper(this);
         try {
@@ -102,12 +109,13 @@ CalcFragment.OnFragmentInteractionListener{
         Fragment fragment = null;
         if (id == R.id.nav_camera) {
             // Handle the camera action
+            fragment = BuilderFragment.newInstance(null, null);
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_psu) {
-            fragment = new CalcFragment().newInstance(null,null);
+            fragment = CalcFragment.newInstance(null, null);
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {

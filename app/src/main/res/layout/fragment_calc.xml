@@ -1,8 +1,9 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.indcoders.pcbuilder.Fragments.CalcFragment">
+    tools:context="com.indcoders.mypcbuilder.Fragments.CalcFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,38 +32,38 @@
                     android:padding="5dp">
 
                     <TextView
+                        android:id="@+id/textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Processor"
-                        android:id="@+id/textView"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/background_floating_material_dark"
-                        android:typeface="serif"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:typeface="serif" />
 
                     <RadioGroup
+                        android:id="@+id/rbGroupProcessor"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/rbGroupProcessor"
                         android:layout_marginTop="10dp">
 
                         <RadioButton
+                            android:id="@+id/rbIntel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="INTEL"
-                            android:id="@+id/rbIntel" />
+                            android:text="INTEL" />
 
                         <RadioButton
+                            android:id="@+id/rbAMD"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="AMD"
-                            android:id="@+id/rbAMD" />
+                            android:text="AMD" />
                     </RadioGroup>
 
                     <Spinner
+                        android:id="@+id/spinner_mb"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_mb"
                         android:layout_marginTop="5dp" />
 
                 </LinearLayout>
@@ -88,104 +89,104 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Motherboard"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/background_floating_material_dark"
-                        android:typeface="serif"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:typeface="serif" />
 
                     <RadioGroup
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:id="@+id/rbGroupMB"
-                        android:layout_marginTop="10dp">
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Desktop"
-                            android:id="@+id/rbDesktop" />
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Server"
-                            android:id="@+id/rbServer" />
-
-                        <RadioButton
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Mini-ITX"
-                            android:id="@+id/rbMini" />
-
-
-
-                    </RadioGroup>
-
-
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:card_view="http://schemas.android.com/apk/res-auto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_weight="45"
-                android:alpha="0.9"
-                android:elevation="2dp"
-                card_view:cardBackgroundColor="@android:color/white"
-                card_view:cardElevation="2sp"
-                card_view:cardUseCompatPadding="true">
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="5dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Graphics Card"
-                        android:textColor="@color/background_floating_material_dark"
-                        android:typeface="serif"
-                        android:textStyle="bold" />
-
-                    <RadioGroup
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/rbGroupGraphics"
                         android:layout_marginTop="10dp">
 
                         <RadioButton
+                            android:id="@+id/rbDesktop"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Integrated"
-                            android:id="@+id/rbIntegrated" />
+                            android:text="Desktop" />
 
                         <RadioButton
+                            android:id="@+id/rbServer"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nvidia"
-                            android:id="@+id/rbNvidia" />
+                            android:text="Server" />
+
                         <RadioButton
+                            android:id="@+id/rbMini"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="ATI"
-                            android:id="@+id/rbAti" />
+                            android:text="Mini-ITX" />
+
+
+
+                    </RadioGroup>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_weight="45"
+                android:alpha="0.9"
+                android:elevation="2dp"
+                card_view:cardBackgroundColor="@android:color/white"
+                card_view:cardElevation="2sp"
+                card_view:cardUseCompatPadding="true">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Graphics Card"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:textColor="@color/background_floating_material_dark"
+                        android:textStyle="bold"
+                        android:typeface="serif" />
+
+                    <RadioGroup
+                        android:id="@+id/rbGroupGraphics"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="10dp">
+
+                        <RadioButton
+                            android:id="@+id/rbIntegrated"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Integrated" />
+
+                        <RadioButton
+                            android:id="@+id/rbNvidia"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Nvidia" />
+                        <RadioButton
+                            android:id="@+id/rbAti"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="ATI" />
                     </RadioGroup>
 
                     <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/spinner_graphics"
-                        android:layout_marginTop="5dp" />
-                    <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp" />
+                    <Spinner
                         android:id="@+id/spinner_graphics_nos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp" />
 
                 </LinearLayout>
@@ -212,21 +213,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="RAM"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/background_floating_material_dark"
-                        android:typeface="serif"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:typeface="serif" />
 
                     <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
                         android:id="@+id/spinner_ram"
-                        android:layout_marginTop="5dp" />
-                    <Spinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp" />
+                    <Spinner
                         android:id="@+id/spinner_ram_nos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_marginTop="5dp" />
 
                 </LinearLayout>
@@ -253,21 +254,21 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Optical Drive"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/background_floating_material_dark"
-                        android:typeface="serif"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:typeface="serif" />
 
                     <Spinner
+                        android:id="@+id/spinner_optical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_optical"
                         android:layout_marginTop="5dp" />
                     <Spinner
+                        android:id="@+id/spinner_optical_nos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_optical_nos"
                         android:layout_marginTop="5dp" />
 
                 </LinearLayout>
@@ -294,32 +295,39 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="Hard Drive"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
                         android:textColor="@color/background_floating_material_dark"
-                        android:typeface="serif"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        android:typeface="serif" />
 
                     <Spinner
+                        android:id="@+id/spinner_hdd"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_hdd"
                         android:layout_marginTop="5dp" />
                     <Spinner
+                        android:id="@+id/spinner_hdd_nos"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:id="@+id/spinner_hdd_nos"
                         android:layout_marginTop="5dp" />
 
                 </LinearLayout>
             </android.support.v7.widget.CardView>
-            <Button
+
+            <info.hoang8f.widget.FButton
+
+                android:id="@+id/bCalculate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="Calculate"
-                android:background="@color/colorPrimary"
-                android:id="@+id/bCalculate"/>
+                android:layout_margin="10dp"
+                android:text="CALCULATE"
+                android:textColor="@android:color/white"
+                fbutton:buttonColor="@color/colorPrimary"
+                fbutton:cornerRadius="5dp"
+                fbutton:shadowColor="@color/colorPrimaryDark"
+                fbutton:shadowEnabled="true"
+                fbutton:shadowHeight="5dp" />
         </LinearLayout>
 
 
