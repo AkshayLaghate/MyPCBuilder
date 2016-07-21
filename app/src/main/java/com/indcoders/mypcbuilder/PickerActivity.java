@@ -1,5 +1,7 @@
 package com.indcoders.mypcbuilder;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -71,6 +73,16 @@ public class PickerActivity extends AppCompatActivity {
                 c.close();
 
                 ProcessorAdapter mAdapter = new ProcessorAdapter(getApplicationContext(), items);
+                mAdapter.setOnSelectedListener(new ProcessorAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Processor processor) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", processor.getModel());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
                 recyclerView.setAdapter(mAdapter);
                 recyclerView.invalidate();
 

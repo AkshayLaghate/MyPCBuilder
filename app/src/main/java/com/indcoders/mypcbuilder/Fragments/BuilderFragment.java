@@ -103,6 +103,7 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
         if (resultCode == Activity.RESULT_OK) {
             if (requestCode == TAG_PRO) {
                 Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvProcessorName.setText(data.getStringExtra("Result"));
             }
         }
     }

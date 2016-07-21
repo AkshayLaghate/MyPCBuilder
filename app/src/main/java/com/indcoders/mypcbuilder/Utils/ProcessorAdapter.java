@@ -24,6 +24,8 @@ public class ProcessorAdapter extends RecyclerView.Adapter<ProcessorAdapter.Proc
     private final List<Processor> itemList;
     Context c;
 
+    private OnSelectedListener onSelectedListener;
+
     public ProcessorAdapter(Context context, ArrayList<Processor> list) {
         inflator = LayoutInflater.from(context);
         c = context;
@@ -50,6 +52,14 @@ public class ProcessorAdapter extends RecyclerView.Adapter<ProcessorAdapter.Proc
         return itemList.size();
     }
 
+    public void setOnSelectedListener(OnSelectedListener mListener) {
+        onSelectedListener = mListener;
+    }
+
+    public interface OnSelectedListener {
+        void onSelected(Processor processor);
+    }
+
     class ProcessorViewHolder extends RecyclerView.ViewHolder {
 
         TextView tvProcessorBrand, tvProcessorModel;
@@ -63,6 +73,12 @@ public class ProcessorAdapter extends RecyclerView.Adapter<ProcessorAdapter.Proc
 
             bSelectProcessor = (Button) itemView.findViewById(R.id.bSelectItemProcessor);
 
+            bSelectProcessor.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    onSelectedListener.onSelected(itemList.get(getAdapterPosition()));
+                }
+            });
         }
     }
 }
