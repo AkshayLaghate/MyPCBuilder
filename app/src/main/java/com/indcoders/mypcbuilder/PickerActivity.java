@@ -65,6 +65,10 @@ public class PickerActivity extends AppCompatActivity {
 
                     temp.setBrand(c.getString(c.getColumnIndex("Brand")));
                     temp.setModel(c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setCore(c.getString(c.getColumnIndex("Core")));
+                    temp.setSpeed(c.getString(c.getColumnIndex("Speed")));
+                    temp.setSocket(c.getString(c.getColumnIndex("Socket")));
 
                     items.add(temp);
 

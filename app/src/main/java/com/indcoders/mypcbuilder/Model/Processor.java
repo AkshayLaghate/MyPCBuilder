@@ -6,7 +6,7 @@ package com.indcoders.mypcbuilder.Model;
 
 public class Processor {
 
-    String brand, model, name, speed, socket, price;
+    String brand, model, core, speed, socket, price;
 
     public String getBrand() {
         return brand;
@@ -24,12 +24,12 @@ public class Processor {
         this.model = model;
     }
 
-    public String getName() {
-        return name;
+    public String getCore() {
+        return core;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setCore(String core) {
+        this.core = core;
     }
 
     public String getSpeed() {

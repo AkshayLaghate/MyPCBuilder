@@ -43,8 +43,12 @@ public class ProcessorAdapter extends RecyclerView.Adapter<ProcessorAdapter.Proc
     @Override
     public void onBindViewHolder(ProcessorViewHolder holder, int position) {
 
-        holder.tvProcessorBrand.setText(itemList.get(position).getBrand());
-        holder.tvProcessorModel.setText(itemList.get(position).getModel());
+        holder.tvProcessorName.setText(itemList.get(position).getBrand() + " " + itemList.get(position).getModel());
+        holder.tvProcessorCore.setText("Cores: " + itemList.get(position).getCore());
+        holder.tvProcessorSocket.setText("Socket: " + itemList.get(position).getSocket());
+        holder.tvProcessorSpeed.setText("Speed: " + itemList.get(position).getSpeed());
+        holder.tvProcessorPrice.setText("Rs." + itemList.get(position).getPrice());
+
     }
 
     @Override
@@ -62,14 +66,17 @@ public class ProcessorAdapter extends RecyclerView.Adapter<ProcessorAdapter.Proc
 
     class ProcessorViewHolder extends RecyclerView.ViewHolder {
 
-        TextView tvProcessorBrand, tvProcessorModel;
+        TextView tvProcessorName, tvProcessorCore, tvProcessorSpeed, tvProcessorSocket, tvProcessorPrice;
         Button bSelectProcessor;
 
         public ProcessorViewHolder(View itemView) {
             super(itemView);
 
-            tvProcessorBrand = (TextView) itemView.findViewById(R.id.tvProcessorItemBrand);
-            tvProcessorModel = (TextView) itemView.findViewById(R.id.tvProcessorItemModel);
+            tvProcessorName = (TextView) itemView.findViewById(R.id.tvProcessorItemName);
+            tvProcessorCore = (TextView) itemView.findViewById(R.id.tvProcessorItemCore);
+            tvProcessorSpeed = (TextView) itemView.findViewById(R.id.tvProcessorItemSpeed);
+            tvProcessorSocket = (TextView) itemView.findViewById(R.id.tvProcessorItemSocket);
+            tvProcessorPrice = (TextView) itemView.findViewById(R.id.tvProcessorItemPrice);
 
             bSelectProcessor = (Button) itemView.findViewById(R.id.bSelectItemProcessor);
 
