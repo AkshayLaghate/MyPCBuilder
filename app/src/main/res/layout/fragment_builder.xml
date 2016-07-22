@@ -1,7 +1,10 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fbutton="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.indcoders.mypcbuilder.Fragments.BuilderFragment">
@@ -19,65 +22,458 @@
         card_view:cardUseCompatPadding="true">
 
         <RelativeLayout
+            android:id="@+id/rlProcessor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="5dp">
+            android:padding="20dp">
+
+
+            <ImageView
+                android:id="@+id/ivStatusProcessor"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/alert_small" />
+
+            <ImageView
+
+                android:id="@+id/bSelectProcessor"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/processor"
+                android:text="SELECT"
+                android:textColor="@android:color/white" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
+                android:layout_alignTop="@+id/bSelectProcessor"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/bSelectProcessor"
+                android:layout_toRightOf="@+id/bSelectProcessor"
+                android:fontFamily="sans-serif-condensed"
                 android:text="Processor"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/background_floating_material_dark"
                 android:textStyle="bold"
                 android:typeface="serif" />
 
-            <LinearLayout
-                android:id="@+id/linearLayout"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_below="@id/textView"
-                android:background="@android:color/darker_gray"
-                android:orientation="horizontal"></LinearLayout>
-
-
             <TextView
                 android:id="@+id/tvProcessorName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_below="@+id/linearLayout"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_toLeftOf="@+id/imageView2"
-                android:layout_toStartOf="@+id/imageView2"
-                android:text="Click select button to choose." />
-
-            <info.hoang8f.widget.FButton
-
-                android:id="@+id/bSelectProcessor"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/tvProcessorName"
-                android:text="SELECT"
-                android:textColor="@android:color/white"
-                fbutton:buttonColor="@color/colorPrimary"
-                fbutton:cornerRadius="5dp"
-                fbutton:shadowColor="@color/colorPrimaryDark"
-                fbutton:shadowEnabled="true"
-                fbutton:shadowHeight="5dp" />
-
-            <ImageView
-                android:id="@+id/imageView2"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentRight="true"
-                android:layout_alignTop="@id/tvProcessorName" />
+                android:layout_alignLeft="@+id/textView"
+                android:layout_alignStart="@+id/textView"
+                android:layout_below="@+id/textView"
+                android:text="Touch to select." />
 
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 
-</LinearLayout>
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:alpha="0.9"
+            android:elevation="2dp"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="2sp"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:id="@+id/rlMb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+
+                <ImageView
+                    android:id="@+id/ivStatusMb"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/alert_small" />
+
+                <ImageView
+
+                    android:id="@+id/bSelectMb"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/processor"
+                    android:text="SELECT"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textViewMb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bSelectMb"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/bSelectMb"
+                    android:layout_toRightOf="@+id/bSelectMb"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Mother Board"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/background_floating_material_dark"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/tvMbName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textViewMb"
+                    android:layout_alignStart="@+id/textViewMb"
+                    android:layout_below="@+id/textViewMb"
+                    android:text="Touch to select." />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:alpha="0.9"
+            android:elevation="2dp"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="2sp"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:id="@+id/rlRam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+
+                <ImageView
+                    android:id="@+id/ivStatusRam"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/alert_small" />
+
+                <ImageView
+
+                    android:id="@+id/bSelectRam"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/processor"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textViewRam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bSelectRam"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/bSelectRam"
+                    android:layout_toRightOf="@+id/bSelectRam"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="RAM"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/background_floating_material_dark"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/tvRamName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textViewRam"
+                    android:layout_alignStart="@+id/textViewRam"
+                    android:layout_below="@+id/textViewRam"
+                    android:text="Touch to select." />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:alpha="0.9"
+            android:elevation="2dp"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="2sp"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:id="@+id/rlHD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+
+                <ImageView
+                    android:id="@+id/ivStatusHD"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/alert_small" />
+
+                <ImageView
+
+                    android:id="@+id/bSelectHD"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/processor"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textViewHD"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bSelectHD"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/bSelectHD"
+                    android:layout_toRightOf="@+id/bSelectHD"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Hard Disk"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/background_floating_material_dark"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/tvHDName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textViewHD"
+                    android:layout_alignStart="@+id/textViewHD"
+                    android:layout_below="@+id/textViewHD"
+                    android:text="Touch to select." />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:alpha="0.9"
+            android:elevation="2dp"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="2sp"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:id="@+id/rlSSD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+
+                <ImageView
+                    android:id="@+id/ivStatusSSD"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/alert_small" />
+
+                <ImageView
+
+                    android:id="@+id/bSelectSSD"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/processor"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textViewSSD"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bSelectSSD"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/bSelectSSD"
+                    android:layout_toRightOf="@+id/bSelectSSD"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="SSD"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/background_floating_material_dark"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/tvSSDName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textViewSSD"
+                    android:layout_alignStart="@+id/textViewSSD"
+                    android:layout_below="@+id/textViewSSD"
+                    android:text="Touch to select." />
+
+            </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:alpha="0.9"
+            android:elevation="2dp"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="2sp"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:id="@+id/rlGC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+
+                <ImageView
+                    android:id="@+id/ivStatusGC"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/alert_small" />
+
+                <ImageView
+
+                    android:id="@+id/bSelectGC"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/processor"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textViewGC"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bSelectGC"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/bSelectGC"
+                    android:layout_toRightOf="@+id/bSelectGC"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Graphics Card"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/background_floating_material_dark"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/tvGCName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textViewGC"
+                    android:layout_alignStart="@+id/textViewGC"
+                    android:layout_below="@+id/textViewGC"
+                    android:text="Touch to select." />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:alpha="0.9"
+            android:elevation="2dp"
+            card_view:cardBackgroundColor="@android:color/white"
+            card_view:cardElevation="2sp"
+            card_view:cardUseCompatPadding="true">
+
+            <RelativeLayout
+                android:id="@+id/rlMon"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp">
+
+
+                <ImageView
+                    android:id="@+id/ivStatusMon"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/alert_small" />
+
+                <ImageView
+
+                    android:id="@+id/bSelectMon"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/processor"
+                    android:textColor="@android:color/white" />
+
+                <TextView
+                    android:id="@+id/textViewMon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/bSelectMon"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/bSelectMon"
+                    android:layout_toRightOf="@+id/bSelectMon"
+                    android:fontFamily="sans-serif-condensed"
+                    android:text="Monitor"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="@color/background_floating_material_dark"
+                    android:textStyle="bold"
+                    android:typeface="serif" />
+
+                <TextView
+                    android:id="@+id/tvMonName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@+id/textViewMon"
+                    android:layout_alignStart="@+id/textViewMon"
+                    android:layout_below="@+id/textViewMon"
+                    android:text="Touch to select." />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+</ScrollView>

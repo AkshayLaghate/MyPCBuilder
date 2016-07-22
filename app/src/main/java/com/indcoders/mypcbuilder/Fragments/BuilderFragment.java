@@ -9,7 +9,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +35,8 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
     private String mParam2;
 
     private TextView tvProcessorName;
-    private Button bSelectProcessor;
+    private RelativeLayout rlProcessor;
+    private ImageView ivStatusPro;
 
     private OnFragmentInteractionListener mListener;
 
@@ -78,10 +80,11 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_builder, container, false);
 
         tvProcessorName = (TextView) v.findViewById(R.id.tvProcessorName);
-        bSelectProcessor = (Button) v.findViewById(R.id.bSelectProcessor);
 
-        bSelectProcessor.setOnClickListener(this);
+        rlProcessor = (RelativeLayout) v.findViewById(R.id.rlProcessor);
+        rlProcessor.setOnClickListener(this);
 
+        ivStatusPro = (ImageView) v.findViewById(R.id.ivStatusProcessor);
 
         return v;
     }
@@ -89,7 +92,7 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.bSelectProcessor:
+            case R.id.rlProcessor:
                 Intent i = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
                 i.putExtra("Tag", "Processor");
                 startActivityForResult(i, TAG_PRO);
@@ -104,6 +107,7 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
             if (requestCode == TAG_PRO) {
                 Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
                 tvProcessorName.setText(data.getStringExtra("Result"));
+                ivStatusPro.setImageResource(R.drawable.success);
             }
         }
     }
