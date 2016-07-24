@@ -25,49 +25,54 @@
             android:fontFamily="sans-serif-condensed"
             android:text="Medium Text"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:textColor="@android:color/black"
-            android:textStyle="bold" />
+            android:textColor="@android:color/black" />
 
 
         <TextView
             android:id="@+id/tvProcessorItemCore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="false"
             android:layout_below="@id/tvProcessorItemName"
             android:layout_marginTop="5dp"
-            android:text="Medium Text"
+            android:background="@drawable/blue_button"
+            android:gravity="center"
+            android:text="Cores: 4"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/tvProcessorItemSpeed"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
             android:layout_below="@id/tvProcessorItemName"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="5dp"
             android:layout_toEndOf="@id/tvProcessorItemCore"
             android:layout_toRightOf="@id/tvProcessorItemCore"
-            android:text="Medium Text"
+            android:background="@drawable/blue_button"
+            android:gravity="center"
+            android:text="Speed: 4Ghz"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/tvProcessorItemSocket"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="180dp"
+            android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="false"
             android:layout_below="@id/tvProcessorItemCore"
             android:layout_marginTop="5dp"
-            android:text="Medium Text"
+            android:background="@drawable/blue_button"
+            android:gravity="center"
+            android:text="Socket: LG1150"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@android:color/black" />
+            android:textColor="@android:color/white" />
 
         <TextView
             android:id="@+id/tvProcessorItemPrice"
