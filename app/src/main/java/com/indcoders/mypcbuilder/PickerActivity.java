@@ -10,9 +10,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.indcoders.mypcbuilder.Model.Motherboard;
 import com.indcoders.mypcbuilder.Model.Processor;
+import com.indcoders.mypcbuilder.Model.Ram;
 import com.indcoders.mypcbuilder.Utils.DBHelper;
+import com.indcoders.mypcbuilder.Utils.MotherboardAdapter;
 import com.indcoders.mypcbuilder.Utils.ProcessorAdapter;
+import com.indcoders.mypcbuilder.Utils.RamAdapter;
 
 import java.util.ArrayList;
 
@@ -88,6 +92,82 @@ public class PickerActivity extends AppCompatActivity {
                     }
                 });
                 recyclerView.setAdapter(mAdapter);
+                recyclerView.invalidate();
+
+                break;
+
+            case "Motherboard":
+                c = db.rawQuery("select * from motherboards", null);
+
+                ArrayList<Motherboard> motherboards = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    Motherboard temp = new Motherboard();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setForm(c.getString(c.getColumnIndex("Form")));
+                    temp.setChipset(c.getString(c.getColumnIndex("Chipset")));
+                    temp.setSocket(c.getString(c.getColumnIndex("Socket")));
+
+                    motherboards.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                MotherboardAdapter motherboardAdapter = new MotherboardAdapter(getApplicationContext(), motherboards);
+                motherboardAdapter.setOnSelectedListener(new MotherboardAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Motherboard motherboard) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", motherboard.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(motherboardAdapter);
+                recyclerView.invalidate();
+
+                break;
+
+            case "Ram":
+                c = db.rawQuery("select * from rams", null);
+
+                ArrayList<Ram> rams = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    Ram temp = new Ram();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setMemory(c.getString(c.getColumnIndex("MemoryType")));
+
+                    rams.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                RamAdapter ramAdapter = new RamAdapter(getApplicationContext(), rams);
+                ramAdapter.setOnSelectedListener(new RamAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Ram ram) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", ram.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(ramAdapter);
                 recyclerView.invalidate();
 
                 break;

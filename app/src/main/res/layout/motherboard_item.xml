@@ -18,7 +18,7 @@
         android:padding="10dp">
 
         <TextView
-            android:id="@+id/tvProcessorItemName"
+            android:id="@+id/tvMbItemName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -29,12 +29,12 @@
             android:textColor="@android:color/black" />
 
         <RatingBar
-            android:id="@+id/ratingProcessorItem"
+            android:id="@+id/ratingMbItem"
             style="@style/foodRatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="false"
-            android:layout_below="@+id/tvProcessorItemName"
+            android:layout_below="@+id/tvMbItemName"
             android:layout_marginLeft="10dp"
             android:layout_marginStart="10dp"
             android:indeterminateOnly="false"
@@ -46,45 +46,41 @@
 
 
         <TextView
-            android:id="@+id/tvProcessorItemCore"
-            android:layout_width="120dp"
+            android:id="@+id/tvMbItemForm"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="false"
-            android:layout_below="@id/ratingProcessorItem"
+            android:layout_below="@id/ratingMbItem"
             android:layout_marginTop="20dp"
             android:background="@drawable/rounded_blue"
             android:gravity="center"
-            android:text="Cores: 4"
+            android:text="Form: Micro ATX"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/white" />
 
 
         <TextView
-            android:id="@+id/tvProcessorItemSpeed"
-            android:layout_width="150dp"
+            android:id="@+id/tvMbItemChipset"
+            android:layout_width="200dp"
             android:layout_height="30dp"
-            android:layout_below="@id/ratingProcessorItem"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_toEndOf="@id/tvProcessorItemCore"
-            android:layout_toRightOf="@id/tvProcessorItemCore"
+            android:layout_below="@id/tvMbItemForm"
+            android:layout_marginTop="5dp"
             android:background="@drawable/rounded_red"
             android:gravity="center"
-            android:text="Speed: 4Ghz"
+            android:text="Socket: AMDA58"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/tvProcessorItemSocket"
-            android:layout_width="180dp"
+            android:id="@+id/tvMbItemSocket"
+            android:layout_width="200dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="false"
-            android:layout_below="@id/tvProcessorItemCore"
+            android:layout_below="@id/tvMbItemChipset"
             android:layout_marginTop="5dp"
             android:background="@drawable/rect_purple"
             android:gravity="center"
@@ -93,13 +89,13 @@
             android:textColor="@android:color/white" />
 
         <TextView
-            android:id="@+id/tvProcessorItemPrice"
+            android:id="@+id/tvMbItemPrice"
             android:layout_width="150dp"
             android:layout_height="30dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="false"
-            android:layout_below="@id/tvProcessorItemSocket"
+            android:layout_below="@id/tvMbItemSocket"
             android:layout_marginTop="5dp"
             android:background="@drawable/rounded_green"
             android:gravity="center"
@@ -112,30 +108,30 @@
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:layout_below="@id/tvProcessorItemPrice"
+            android:layout_below="@id/tvMbItemPrice"
             android:layout_marginTop="15dp"
             android:background="@android:color/darker_gray"
             android:orientation="horizontal"></LinearLayout>
 
 
         <Button
-            android:id="@+id/bSelectItemProcessor"
+            android:id="@+id/bSelectItemMb"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tvProcessorItemPrice"
+            android:layout_below="@id/tvMbItemPrice"
             android:layout_marginTop="20dp"
             android:text="Choose"
             android:textColor="@android:color/holo_blue_light" />
 
         <Button
-            android:id="@+id/bRateItemProcessor"
+            android:id="@+id/bRateItemMb"
             style="@style/Widget.AppCompat.Button.Borderless"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@id/bSelectItemProcessor"
-            android:layout_toEndOf="@id/bSelectItemProcessor"
-            android:layout_toRightOf="@id/bSelectItemProcessor"
+            android:layout_alignTop="@id/bSelectItemMb"
+            android:layout_toEndOf="@id/bSelectItemMb"
+            android:layout_toRightOf="@id/bSelectItemMb"
             android:text="Rate"
             android:textColor="@android:color/holo_blue_light" />
     </RelativeLayout>

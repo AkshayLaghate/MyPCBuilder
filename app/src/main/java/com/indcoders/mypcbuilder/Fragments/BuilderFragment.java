@@ -34,9 +34,9 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    private TextView tvProcessorName;
-    private RelativeLayout rlProcessor;
-    private ImageView ivStatusPro;
+    private TextView tvProcessorName, tvMbName, tvRamName;
+    private RelativeLayout rlProcessor, rlMotherboard, rlRam;
+    private ImageView ivStatusPro, ivStatusMb, ivStatusRam;
 
     private OnFragmentInteractionListener mListener;
 
@@ -80,11 +80,20 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
         View v = inflater.inflate(R.layout.fragment_builder, container, false);
 
         tvProcessorName = (TextView) v.findViewById(R.id.tvProcessorName);
-
         rlProcessor = (RelativeLayout) v.findViewById(R.id.rlProcessor);
         rlProcessor.setOnClickListener(this);
-
         ivStatusPro = (ImageView) v.findViewById(R.id.ivStatusProcessor);
+
+        tvMbName = (TextView) v.findViewById(R.id.tvMbName);
+        ivStatusMb = (ImageView) v.findViewById(R.id.ivStatusMb);
+        rlMotherboard = (RelativeLayout) v.findViewById(R.id.rlMb);
+        rlMotherboard.setOnClickListener(this);
+
+        tvRamName = (TextView) v.findViewById(R.id.tvRamName);
+        ivStatusRam = (ImageView) v.findViewById(R.id.ivStatusRam);
+        rlRam = (RelativeLayout) v.findViewById(R.id.rlRam);
+        rlRam.setOnClickListener(this);
+
 
         return v;
     }
@@ -97,6 +106,18 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
                 i.putExtra("Tag", "Processor");
                 startActivityForResult(i, TAG_PRO);
                 break;
+
+            case R.id.rlMb:
+                Intent mbIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                mbIntent.putExtra("Tag", "Motherboard");
+                startActivityForResult(mbIntent, TAG_MB);
+                break;
+
+            case R.id.rlRam:
+                Intent ramIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                ramIntent.putExtra("Tag", "Ram");
+                startActivityForResult(ramIntent, TAG_RAM);
+                break;
         }
     }
 
@@ -108,6 +129,17 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
                 tvProcessorName.setText(data.getStringExtra("Result"));
                 ivStatusPro.setImageResource(R.drawable.success);
+            }
+            if (requestCode == TAG_MB) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvMbName.setText(data.getStringExtra("Result"));
+                ivStatusMb.setImageResource(R.drawable.success);
+            }
+
+            if (requestCode == TAG_RAM) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvRamName.setText(data.getStringExtra("Result"));
+                ivStatusRam.setImageResource(R.drawable.success);
             }
         }
     }

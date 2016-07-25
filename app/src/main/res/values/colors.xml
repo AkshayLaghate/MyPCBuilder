@@ -4,6 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="rect_blue">#039BE5</color>
+    <color name="rect_red">#F44336</color>
+    <color name="rect_purple">#673AB7</color>
+    <color name="rect_green">#43A047</color>
+
     <color name="fbutton_color_turquoise">#1abc9c</color>
     <color name="fbutton_color_green_sea">#16a085</color>
     <color name="fbutton_color_emerald">#2ecc71</color>
