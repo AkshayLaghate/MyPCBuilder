@@ -34,9 +34,9 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    private TextView tvProcessorName, tvMbName, tvRamName;
-    private RelativeLayout rlProcessor, rlMotherboard, rlRam;
-    private ImageView ivStatusPro, ivStatusMb, ivStatusRam;
+    private TextView tvProcessorName, tvMbName, tvRamName, tvHdName, tvSsdName, tvGcName, tvMonName;
+    private RelativeLayout rlProcessor, rlMotherboard, rlRam, rlHd, rlSsd, rlGc, rlMon;
+    private ImageView ivStatusPro, ivStatusMb, ivStatusRam, ivStatusHd, ivStatusSsd, ivStatusGc, ivStatusMon;
 
     private OnFragmentInteractionListener mListener;
 
@@ -94,6 +94,25 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
         rlRam = (RelativeLayout) v.findViewById(R.id.rlRam);
         rlRam.setOnClickListener(this);
 
+        tvHdName = (TextView) v.findViewById(R.id.tvHDName);
+        ivStatusHd = (ImageView) v.findViewById(R.id.ivStatusHD);
+        rlHd = (RelativeLayout) v.findViewById(R.id.rlHD);
+        rlHd.setOnClickListener(this);
+
+        tvSsdName = (TextView) v.findViewById(R.id.tvSSDName);
+        ivStatusSsd = (ImageView) v.findViewById(R.id.ivStatusSSD);
+        rlSsd = (RelativeLayout) v.findViewById(R.id.rlSSD);
+        rlSsd.setOnClickListener(this);
+
+        tvGcName = (TextView) v.findViewById(R.id.tvGCName);
+        ivStatusGc = (ImageView) v.findViewById(R.id.ivStatusGC);
+        rlGc = (RelativeLayout) v.findViewById(R.id.rlGC);
+        rlGc.setOnClickListener(this);
+
+        tvMonName = (TextView) v.findViewById(R.id.tvMonName);
+        ivStatusMon = (ImageView) v.findViewById(R.id.ivStatusMon);
+        rlMon = (RelativeLayout) v.findViewById(R.id.rlMon);
+        rlMon.setOnClickListener(this);
 
         return v;
     }
@@ -118,6 +137,30 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
                 ramIntent.putExtra("Tag", "Ram");
                 startActivityForResult(ramIntent, TAG_RAM);
                 break;
+
+            case R.id.rlHD:
+                Intent hdIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                hdIntent.putExtra("Tag", "HD");
+                startActivityForResult(hdIntent, TAG_HD);
+                break;
+
+            case R.id.rlSSD:
+                Intent ssdIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                ssdIntent.putExtra("Tag", "SSD");
+                startActivityForResult(ssdIntent, TAG_SSD);
+                break;
+
+            case R.id.rlGC:
+                Intent gcIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                gcIntent.putExtra("Tag", "GC");
+                startActivityForResult(gcIntent, TAG_GC);
+                break;
+
+            case R.id.rlMon:
+                Intent monIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                monIntent.putExtra("Tag", "MON");
+                startActivityForResult(monIntent, TAG_MON);
+                break;
         }
     }
 
@@ -140,6 +183,30 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
                 tvRamName.setText(data.getStringExtra("Result"));
                 ivStatusRam.setImageResource(R.drawable.success);
+            }
+
+            if (requestCode == TAG_HD) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvHdName.setText(data.getStringExtra("Result"));
+                ivStatusHd.setImageResource(R.drawable.success);
+            }
+
+            if (requestCode == TAG_SSD) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvSsdName.setText(data.getStringExtra("Result"));
+                ivStatusSsd.setImageResource(R.drawable.success);
+            }
+
+            if (requestCode == TAG_GC) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvGcName.setText(data.getStringExtra("Result"));
+                ivStatusGc.setImageResource(R.drawable.success);
+            }
+
+            if (requestCode == TAG_MON) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvMonName.setText(data.getStringExtra("Result"));
+                ivStatusMon.setImageResource(R.drawable.success);
             }
         }
     }

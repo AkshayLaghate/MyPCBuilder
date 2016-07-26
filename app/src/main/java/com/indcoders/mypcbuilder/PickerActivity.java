@@ -10,10 +10,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 
+import com.indcoders.mypcbuilder.Model.Monitor;
 import com.indcoders.mypcbuilder.Model.Motherboard;
 import com.indcoders.mypcbuilder.Model.Processor;
 import com.indcoders.mypcbuilder.Model.Ram;
 import com.indcoders.mypcbuilder.Utils.DBHelper;
+import com.indcoders.mypcbuilder.Utils.MonitorAdapter;
 import com.indcoders.mypcbuilder.Utils.MotherboardAdapter;
 import com.indcoders.mypcbuilder.Utils.ProcessorAdapter;
 import com.indcoders.mypcbuilder.Utils.RamAdapter;
@@ -168,6 +170,158 @@ public class PickerActivity extends AppCompatActivity {
                     }
                 });
                 recyclerView.setAdapter(ramAdapter);
+                recyclerView.invalidate();
+
+                break;
+
+            case "HD":
+                c = db.rawQuery("select * from hd", null);
+
+                ArrayList<Ram> hds = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    Ram temp = new Ram();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setMemory(c.getString(c.getColumnIndex("Capacity")));
+
+                    hds.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                RamAdapter hdAdapter = new RamAdapter(getApplicationContext(), hds);
+                hdAdapter.setOnSelectedListener(new RamAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Ram ram) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", ram.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(hdAdapter);
+                recyclerView.invalidate();
+
+                break;
+
+            case "SSD":
+                c = db.rawQuery("select * from ssd", null);
+
+                ArrayList<Ram> ssds = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    Ram temp = new Ram();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setMemory(c.getString(c.getColumnIndex("Capacity")));
+
+                    ssds.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                RamAdapter ssdAdapter = new RamAdapter(getApplicationContext(), ssds);
+                ssdAdapter.setOnSelectedListener(new RamAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Ram ram) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", ram.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(ssdAdapter);
+                recyclerView.invalidate();
+
+                break;
+
+            case "GC":
+                c = db.rawQuery("select * from graphics", null);
+
+                ArrayList<Ram> gcs = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    Ram temp = new Ram();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Chipset")) + " " + c.getString(c.getColumnIndex("GPU")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setMemory(c.getString(c.getColumnIndex("Memory")));
+
+                    gcs.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                RamAdapter gcAdapter = new RamAdapter(getApplicationContext(), gcs);
+                gcAdapter.setOnSelectedListener(new RamAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Ram ram) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", ram.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(gcAdapter);
+                recyclerView.invalidate();
+
+                break;
+
+            case "MON":
+                c = db.rawQuery("select * from monitors", null);
+
+                ArrayList<Monitor> mons = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    Monitor temp = new Monitor();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setSize(c.getString(c.getColumnIndex("Size")));
+                    temp.setPanel(c.getString(c.getColumnIndex("Panel")));
+                    temp.setResolution(c.getString(c.getColumnIndex("Resolution")));
+                    temp.setResponse(c.getString(c.getColumnIndex("Response")));
+
+
+                    mons.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                MonitorAdapter monAdapter = new MonitorAdapter(getApplicationContext(), mons);
+                monAdapter.setOnSelectedListener(new MonitorAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Monitor mon) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", mon.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(monAdapter);
                 recyclerView.invalidate();
 
                 break;
