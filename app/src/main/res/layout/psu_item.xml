@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginBottom="5dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginTop="5dp"
+    card_view:cardBackgroundColor="@android:color/white"
+    card_view:cardCornerRadius="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/tvPSUItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:fontFamily="sans-serif-condensed"
+            android:padding="10dp"
+            android:text="Medium Text"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/black" />
+
+        <RatingBar
+            android:id="@+id/ratingPSUItem"
+            style="@style/foodRatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="false"
+            android:layout_below="@+id/tvPSUItemName"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:indeterminateOnly="false"
+            android:isIndicator="true"
+            android:maxWidth="200dp"
+            android:numStars="5"
+            android:rating="4.5"
+            android:stepSize=".5" />
+
+
+        <TextView
+            android:id="@+id/tvPSUItemPower"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:layout_below="@id/ratingPSUItem"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/rounded_blue"
+            android:gravity="center"
+            android:text="Cores: 4"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+
+        <TextView
+            android:id="@+id/tvPSUItemEfficiency"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/ratingPSUItem"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@id/tvPSUItemPower"
+            android:layout_toRightOf="@id/tvPSUItemPower"
+            android:background="@drawable/rounded_red"
+            android:gravity="center"
+            android:text="Speed: 4Ghz"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white" />
+
+
+        <TextView
+            android:id="@+id/tvPSUItemPrice"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="false"
+            android:layout_below="@id/tvPSUItemPower"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/rounded_green"
+            android:gravity="center"
+            android:text="Rs. 23999"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/white"
+            android:typeface="monospace" />
+
+        <LinearLayout
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_below="@id/tvPSUItemPrice"
+            android:layout_marginTop="15dp"
+            android:background="@android:color/darker_gray"
+            android:orientation="horizontal"></LinearLayout>
+
+
+        <Button
+            android:id="@+id/bSelectItemPSU"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvPSUItemPrice"
+            android:layout_marginTop="20dp"
+            android:text="Choose"
+            android:textColor="@android:color/holo_blue_light" />
+
+        <Button
+            android:id="@+id/bRateItemPSU"
+            style="@style/Widget.AppCompat.Button.Borderless"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/bSelectItemPSU"
+            android:layout_toEndOf="@id/bSelectItemPSU"
+            android:layout_toRightOf="@id/bSelectItemPSU"
+            android:text="Rate"
+            android:textColor="@android:color/holo_blue_light" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>

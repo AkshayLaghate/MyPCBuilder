@@ -12,11 +12,13 @@ import android.support.v7.widget.Toolbar;
 
 import com.indcoders.mypcbuilder.Model.Monitor;
 import com.indcoders.mypcbuilder.Model.Motherboard;
+import com.indcoders.mypcbuilder.Model.PSU;
 import com.indcoders.mypcbuilder.Model.Processor;
 import com.indcoders.mypcbuilder.Model.Ram;
 import com.indcoders.mypcbuilder.Utils.DBHelper;
 import com.indcoders.mypcbuilder.Utils.MonitorAdapter;
 import com.indcoders.mypcbuilder.Utils.MotherboardAdapter;
+import com.indcoders.mypcbuilder.Utils.PSUAdapter;
 import com.indcoders.mypcbuilder.Utils.ProcessorAdapter;
 import com.indcoders.mypcbuilder.Utils.RamAdapter;
 
@@ -322,6 +324,45 @@ public class PickerActivity extends AppCompatActivity {
                     }
                 });
                 recyclerView.setAdapter(monAdapter);
+                recyclerView.invalidate();
+
+                break;
+
+            case "PSU":
+                c = db.rawQuery("select * from psu", null);
+
+                ArrayList<PSU> psus = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    PSU temp = new PSU();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setPower(c.getString(c.getColumnIndex("Power")));
+                    temp.setEfficiency(c.getString(c.getColumnIndex("Efficiency")));
+
+
+                    psus.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                PSUAdapter psuAdapter = new PSUAdapter(getApplicationContext(), psus);
+                psuAdapter.setOnSelectedListener(new PSUAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(PSU psu) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", psu.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(psuAdapter);
                 recyclerView.invalidate();
 
                 break;

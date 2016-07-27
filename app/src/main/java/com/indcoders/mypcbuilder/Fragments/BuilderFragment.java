@@ -34,9 +34,9 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
 
-    private TextView tvProcessorName, tvMbName, tvRamName, tvHdName, tvSsdName, tvGcName, tvMonName;
-    private RelativeLayout rlProcessor, rlMotherboard, rlRam, rlHd, rlSsd, rlGc, rlMon;
-    private ImageView ivStatusPro, ivStatusMb, ivStatusRam, ivStatusHd, ivStatusSsd, ivStatusGc, ivStatusMon;
+    private TextView tvProcessorName, tvMbName, tvRamName, tvHdName, tvSsdName, tvGcName, tvMonName, tvPsuName, tvOptName;
+    private RelativeLayout rlProcessor, rlMotherboard, rlRam, rlHd, rlSsd, rlGc, rlMon, rlPsu, rlOpt;
+    private ImageView ivStatusPro, ivStatusMb, ivStatusRam, ivStatusHd, ivStatusSsd, ivStatusGc, ivStatusMon, ivStatusPsu, ivStatusOpt;
 
     private OnFragmentInteractionListener mListener;
 
@@ -114,6 +114,16 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
         rlMon = (RelativeLayout) v.findViewById(R.id.rlMon);
         rlMon.setOnClickListener(this);
 
+        tvPsuName = (TextView) v.findViewById(R.id.tvPsuName);
+        ivStatusPsu = (ImageView) v.findViewById(R.id.ivStatusPsu);
+        rlPsu = (RelativeLayout) v.findViewById(R.id.rlPsu);
+        rlPsu.setOnClickListener(this);
+
+        tvOptName = (TextView) v.findViewById(R.id.tvOptName);
+        ivStatusOpt = (ImageView) v.findViewById(R.id.ivStatusOpt);
+        rlOpt = (RelativeLayout) v.findViewById(R.id.rlOpt);
+        rlOpt.setOnClickListener(this);
+
         return v;
     }
 
@@ -161,6 +171,18 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
                 monIntent.putExtra("Tag", "MON");
                 startActivityForResult(monIntent, TAG_MON);
                 break;
+
+            case R.id.rlPsu:
+                Intent psuIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                psuIntent.putExtra("Tag", "PSU");
+                startActivityForResult(psuIntent, TAG_PSU);
+                break;
+
+            case R.id.rlOpt:
+                Intent optIntent = new Intent(getContext(), com.indcoders.mypcbuilder.PickerActivity.class);
+                optIntent.putExtra("Tag", "OPT");
+                startActivityForResult(optIntent, TAG_OPT);
+                break;
         }
     }
 
@@ -207,6 +229,18 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
                 Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
                 tvMonName.setText(data.getStringExtra("Result"));
                 ivStatusMon.setImageResource(R.drawable.success);
+            }
+
+            if (requestCode == TAG_PSU) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvPsuName.setText(data.getStringExtra("Result"));
+                ivStatusPsu.setImageResource(R.drawable.success);
+            }
+
+            if (requestCode == TAG_OPT) {
+                Toast.makeText(getContext(), data.getStringExtra("Result"), Toast.LENGTH_SHORT).show();
+                tvOptName.setText(data.getStringExtra("Result"));
+                ivStatusOpt.setImageResource(R.drawable.success);
             }
         }
     }
