@@ -366,6 +366,43 @@ public class PickerActivity extends AppCompatActivity {
                 recyclerView.invalidate();
 
                 break;
+
+            case "OPT":
+                c = db.rawQuery("select * from optical", null);
+
+                ArrayList<Ram> opt = new ArrayList<>();
+
+                c.moveToFirst();
+
+                while (!c.isAfterLast()) {
+
+                    Ram temp = new Ram();
+
+                    temp.setName(c.getString(c.getColumnIndex("Brand")) + " " + c.getString(c.getColumnIndex("Model")));
+                    temp.setPrice(c.getString(c.getColumnIndex("Price")));
+                    temp.setMemory(c.getString(c.getColumnIndex("Type")));
+
+                    opt.add(temp);
+
+                    c.moveToNext();
+                }
+                c.close();
+
+                RamAdapter optAdapter = new RamAdapter(getApplicationContext(), opt);
+                optAdapter.setOnSelectedListener(new RamAdapter.OnSelectedListener() {
+                    @Override
+                    public void onSelected(Ram ram) {
+                        Intent i = new Intent();
+                        i.putExtra("Result", ram.getName());
+
+                        setResult(Activity.RESULT_OK, i);
+                        finish();
+                    }
+                });
+                recyclerView.setAdapter(optAdapter);
+                recyclerView.invalidate();
+
+                break;
         }
 
 
