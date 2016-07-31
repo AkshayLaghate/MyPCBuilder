@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.indcoders.mypcbuilder.R;
+import com.indcoders.mypcbuilder.Utils.TinyDB;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,6 +40,8 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
     private ImageView ivStatusPro, ivStatusMb, ivStatusRam, ivStatusHd, ivStatusSsd, ivStatusGc, ivStatusMon, ivStatusPsu, ivStatusOpt;
 
     private OnFragmentInteractionListener mListener;
+
+    private TinyDB tiny;
 
     private int TAG_MB = 1, TAG_PRO = 2, TAG_GC = 3, TAG_RAM = 4, TAG_HD = 5, TAG_SSD = 6, TAG_MON = 7, TAG_PSU = 8, TAG_OPT = 9;
 
@@ -71,6 +74,8 @@ public class BuilderFragment extends Fragment implements View.OnClickListener {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+
+        tiny = new TinyDB(getContext());
     }
 
     @Override
